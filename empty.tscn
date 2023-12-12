@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://q0wesa3pgbml"]
+
+[ext_resource type="Texture2D" uid="uid://cc8utc0dxe2sk" path="res://HeartCode/3heartEmpty.png" id="1_2i2qo"]
+[ext_resource type="Script" path="res://empty.gd" id="2_g3bnf"]
+
+[node name="empty" type="Sprite2D"]
+position = Vector2(32, 0)
+texture = ExtResource("1_2i2qo")
+script = ExtResource("2_g3bnf")
