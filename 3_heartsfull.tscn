@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhvtdefojndu7"]
+
+[ext_resource type="Texture2D" uid="uid://bvaj2isu868nl" path="res://3heartFull.png" id="1_llwn4"]
+
+[node name="3heartsfull" type="Sprite2D"]
+texture = ExtResource("1_llwn4")
+hframes = 3

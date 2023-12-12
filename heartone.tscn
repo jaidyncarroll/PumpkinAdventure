@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq5xues2u37ds"]
+
+[ext_resource type="Texture2D" uid="uid://4o6kunhx8omj" path="res://HeartCode/heart.png" id="1_mqvpc"]
+[ext_resource type="Script" path="res://HeartCode/heart.gd" id="3_pxuw7"]
+[ext_resource type="PackedScene" uid="uid://bhvtdefojndu7" path="res://HeartCode/3_heartsfull.tscn" id="3_syuwm"]
+[ext_resource type="Script" path="res://HeartCode/hearttwo.gd" id="4_bcl0u"]
+[ext_resource type="Script" path="res://HeartCode/heartthree.gd" id="5_gnnqs"]
+
+[node name="heartone" type="Sprite2D"]
+vframes = 2
+frame = 1
+metadata/_edit_horizontal_guides_ = [119.0]
+
+[node name="heart" parent="." instance=ExtResource("3_syuwm")]
+texture = ExtResource("1_mqvpc")
+hframes = 1
+vframes = 2
+frame = 1
+script = ExtResource("3_pxuw7")
+metadata/_edit_horizontal_guides_ = [119.0]
+
+[node name="hearttwo" parent="." instance=ExtResource("3_syuwm")]
+position = Vector2(31, 0)
+texture = ExtResource("1_mqvpc")
+hframes = 1
+vframes = 2
+frame = 1
+script = ExtResource("4_bcl0u")
+metadata/_edit_horizontal_guides_ = [119.0]
+
+[node name="heartthree" parent="." instance=ExtResource("3_syuwm")]
+position = Vector2(62, 0)
+texture = ExtResource("1_mqvpc")
+hframes = 1
+vframes = 2
+frame = 1
+script = ExtResource("5_gnnqs")
+metadata/_edit_horizontal_guides_ = [119.0]
