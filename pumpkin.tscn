@@ -1,0 +1,148 @@
+[gd_scene load_steps=22 format=3 uid="uid://c6tlpu3flkqgs"]
+
+[ext_resource type="Texture2D" uid="uid://nvon1r1ti1vd" path="res://pumpkin.png" id="1_dkc1c"]
+[ext_resource type="Script" path="res://pumpkin.gd" id="1_eesva"]
+[ext_resource type="Texture2D" uid="uid://dirrla2afsfah" path="res://Forest Background.png" id="2_b7qj8"]
+[ext_resource type="Texture2D" uid="uid://chi2xrkaroy3u" path="res://Village Background.png" id="2_pf8gy"]
+[ext_resource type="Texture2D" uid="uid://b22pjhpdcqgid" path="res://Cave Background.png" id="2_rxfua"]
+[ext_resource type="Texture2D" uid="uid://dcr77xbe1mwro" path="res://Dark Forest Background.png" id="2_uuw05"]
+[ext_resource type="Script" path="res://DarkForestBackground.gd" id="3_1lfg2"]
+[ext_resource type="Script" path="res://CaveBackground.gd" id="3_4ktce"]
+[ext_resource type="Script" path="res://VillageBackground.gd" id="3_ccflg"]
+[ext_resource type="Texture2D" uid="uid://11myqgxynmkk" path="res://Sky Background.png" id="3_k2b3u"]
+[ext_resource type="Script" path="res://WalkingRight.gd" id="3_m1mlu"]
+[ext_resource type="Script" path="res://ForestBackground.gd" id="3_yncye"]
+[ext_resource type="Script" path="res://WalkingLeft.gd" id="4_6w3m5"]
+[ext_resource type="Script" path="res://SkyBackground.gd" id="5_ek1uq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v6avm"]
+radius = 62.1289
+
+[sub_resource type="Animation" id="Animation_mnm57"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_g7sde"]
+resource_name = "WalkingRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hkjjx"]
+_data = {
+"RESET": SubResource("Animation_mnm57"),
+"WalkingRight": SubResource("Animation_g7sde")
+}
+
+[sub_resource type="Animation" id="Animation_37rb5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_vf6w6"]
+resource_name = "WalkingLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pumpkin:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7o8xm"]
+_data = {
+"RESET": SubResource("Animation_37rb5"),
+"WalkingLeft": SubResource("Animation_vf6w6")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_eesva")
+
+[node name="CaveBackground" type="Sprite2D" parent="."]
+position = Vector2(124.707, -433)
+scale = Vector2(1.72159, 1.72159)
+texture = ExtResource("2_rxfua")
+script = ExtResource("3_4ktce")
+
+[node name="DarkForestBackground" type="Sprite2D" parent="."]
+position = Vector2(145.354, -416.75)
+scale = Vector2(2.44529, 2.44529)
+texture = ExtResource("2_uuw05")
+script = ExtResource("3_1lfg2")
+
+[node name="ForestBackground" type="Sprite2D" parent="."]
+position = Vector2(139.235, -446.876)
+scale = Vector2(2.4894, 2.4894)
+texture = ExtResource("2_b7qj8")
+script = ExtResource("3_yncye")
+
+[node name="VillageBackground" type="Sprite2D" parent="."]
+position = Vector2(89, -487)
+scale = Vector2(2.38647, 2.38647)
+texture = ExtResource("2_pf8gy")
+script = ExtResource("3_ccflg")
+
+[node name="SkyBackground" type="Sprite2D" parent="."]
+position = Vector2(42, -425)
+scale = Vector2(2.25266, 2.25266)
+texture = ExtResource("3_k2b3u")
+script = ExtResource("5_ek1uq")
+
+[node name="Pumpkin" type="Sprite2D" parent="."]
+position = Vector2(8, 6)
+scale = Vector2(0.191979, 0.184589)
+texture = ExtResource("1_dkc1c")
+hframes = 2
+vframes = 4
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_v6avm")
+
+[node name="WalkingRight" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hkjjx")
+}
+script = ExtResource("3_m1mlu")
+
+[node name="WalkingLeft" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7o8xm")
+}
+script = ExtResource("4_6w3m5")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ib23oew5hf5v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hme07"]
+
+[sub_resource type="TileSet" id="TileSet_h32fs"]
+resource_local_to_scene = true
+tile_size = Vector2i(62, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_hme07")
+
+[node name="tilemap" type="TileMap"]
+tile_set = SubResource("TileSet_h32fs")
+format = 2

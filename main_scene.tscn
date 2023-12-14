@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://h7dt4sedebn3"]
+
+[ext_resource type="PackedScene" uid="uid://ib23oew5hf5v" path="res://tilemap.tscn" id="1_7wcf3"]
+[ext_resource type="PackedScene" uid="uid://c6tlpu3flkqgs" path="res://pumpkin.tscn" id="1_mobgy"]
+[ext_resource type="Script" path="res://main_scene.gd" id="1_pt8uv"]
+[ext_resource type="Texture2D" uid="uid://bq680jr0ek8fe" path="res://gameTileset.png" id="3_rhrlc"]
+[ext_resource type="PackedScene" uid="uid://datnn4pr16bnr" path="res://tree_checkpoint.tscn" id="6_q464a"]
+[ext_resource type="PackedScene" uid="uid://bi350fadigek0" path="res://opening_text.tscn" id="7_v2jth"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hme07"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k415x"]
+texture = ExtResource("3_rhrlc")
+separation = Vector2i(2, 0)
+texture_region_size = Vector2i(62, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31, -32, 31, -32, 31, 32, -31, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31, -32, 31, -32, 31, 32, -31, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31, -32, 31, -32, 31, 32, -31, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_whajh"]
+resource_local_to_scene = true
+tile_size = Vector2i(62, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_hme07")
+sources/0 = SubResource("TileSetAtlasSource_k415x")
+
+[node name="Main_Scene" type="Node2D"]
+script = ExtResource("1_pt8uv")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_mobgy")]
+position = Vector2(118, 488)
+scale = Vector2(1.0136, 1.0136)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(60.1814, -140.095)
+
+[node name="tilemap" parent="." instance=ExtResource("1_7wcf3")]
+tile_set = SubResource("TileSet_whajh")
+layer_0/tile_data = PackedInt32Array(589824, 65536, 0, 589825, 65536, 0, 589826, 65536, 0, 589827, 65536, 0, 589828, 65536, 0, 589829, 65536, 0, 589830, 65536, 0, 589831, 65536, 0, 589832, 65536, 0, 589833, 65536, 0, 589834, 65536, 0, 589835, 65536, 0, 589836, 65536, 0, 589837, 65536, 0, 589838, 65536, 0, 589839, 65536, 0, 589840, 65536, 0, 589841, 65536, 0, 589842, 65536, 0)
+
+[node name="Area2D" parent="." instance=ExtResource("6_q464a")]
+position = Vector2(1062, 476)
+
+[node name="Control" parent="." instance=ExtResource("7_v2jth")]
+offset_left = -2.0
+offset_top = 2.0
+offset_right = -1.0
+offset_bottom = 2.0

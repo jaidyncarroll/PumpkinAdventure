@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://drj8am32b1t2t"]
+
+[ext_resource type="Texture2D" uid="uid://ddt0yjy6n4cxi" path="res://gameoverScene.png" id="1_i5ro2"]
+
+[node name="game_over" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(585, 326)
+
+[node name="GameoverScene" type="Sprite2D" parent="Camera2D"]
+position = Vector2(-7.62433, 7.28128)
+scale = Vector2(0.581624, 0.489683)
+texture = ExtResource("1_i5ro2")
+metadata/_edit_lock_ = true

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq4uv6vyjgcfs"]
+
+[ext_resource type="Texture2D" uid="uid://b4wq5x6xp80nf" path="res://winScene.png" id="1_hukye"]
+
+[node name="win_scene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(580, 323)
+
+[node name="WinScene" type="Sprite2D" parent="Camera2D"]
+position = Vector2(1.48321, -2.18734)
+scale = Vector2(0.579517, 0.481566)
+texture = ExtResource("1_hukye")

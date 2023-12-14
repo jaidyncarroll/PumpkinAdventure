@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=3 uid="uid://drkdx75evh8s8"]
+
+[ext_resource type="Script" path="res://Pumpkin/pumpkin_character.gd" id="1_yl0s8"]
+[ext_resource type="Texture2D" uid="uid://nvon1r1ti1vd" path="res://Pumpkin/pumpkin.png" id="2_1lonj"]
+[ext_resource type="Script" path="res://Pumpkin/WalkingRight.gd" id="3_ah78p"]
+[ext_resource type="Script" path="res://Pumpkin/WalkingLeft.gd" id="4_mgujm"]
+
+[sub_resource type="Animation" id="Animation_n2lcm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pumpkinSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_17bug"]
+resource_name = "WalkingRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pumpkinSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b5nnr"]
+_data = {
+"RESET": SubResource("Animation_n2lcm"),
+"WalkingRight": SubResource("Animation_17bug")
+}
+
+[sub_resource type="Animation" id="Animation_hg7k1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pumpkinSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_q66fe"]
+resource_name = "WalkingLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pumpkinSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6cd0v"]
+_data = {
+"RESET": SubResource("Animation_hg7k1"),
+"WalkingLeft": SubResource("Animation_q66fe")
+}
+
+[node name="pumpkinCharacter" type="CharacterBody2D"]
+script = ExtResource("1_yl0s8")
+
+[node name="pumpkinSprite" type="Sprite2D" parent="."]
+position = Vector2(1.00001, 7.62939e-06)
+scale = Vector2(0.0924933, 0.0924933)
+texture = ExtResource("2_1lonj")
+hframes = 2
+vframes = 4
+frame = 3
+
+[node name="pumpkinCollision" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(0, 2)
+scale = Vector2(0.0865828, 0.0865828)
+polygon = PackedVector2Array(242.542, -277.191, 214, -1, 225, 327, -292, 338, -311, -375)
+
+[node name="WalkingRight" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b5nnr")
+}
+script = ExtResource("3_ah78p")
+
+[node name="WalkingLeft" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6cd0v")
+}
+script = ExtResource("4_mgujm")

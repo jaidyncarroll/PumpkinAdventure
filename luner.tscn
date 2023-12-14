@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4fa04884o8lo"]
+
+[ext_resource type="Texture2D" uid="uid://du5bilchs8r7k" path="res://luner.png" id="1_hqfw3"]
+[ext_resource type="Script" path="res://luner.gd" id="1_q1f7r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w584m"]
+radius = 96.0
+height = 411.087
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_q1f7r")
+
+[node name="Luner" type="Sprite2D" parent="."]
+position = Vector2(0, 2.00001)
+scale = Vector2(0.278, 0.278)
+texture = ExtResource("1_hqfw3")
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-83, 6)
+rotation = -1.60617
+shape = SubResource("CapsuleShape2D_w584m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

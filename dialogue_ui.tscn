@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://vdrqv5vcyrfg"]
+
+[ext_resource type="Script" path="res://dialogue_ui.gd" id="1_873gp"]
+
+[sub_resource type="Theme" id="Theme_nlhc5"]
+
+[node name="Dialogue UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_873gp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.639216)
+layout_mode = 0
+offset_right = 374.0
+offset_bottom = 198.0
+
+[node name="dialogue" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.1
+anchor_right = 9.425
+anchor_bottom = 4.925
+offset_left = 2.0
+offset_top = 5.0
+offset_right = -6.0
+theme = SubResource("Theme_nlhc5")
+text = "Hi friend! Meow! Our world is in danger.
+The dogs have been hypnotized by an evil
+sorcerer and are disrupting the peace.
+There aren't so many bright villages like
+this anymore. Eat fish to repare your hearts. 
+Be safe out there!"
+horizontal_alignment = 1
+vertical_alignment = 1

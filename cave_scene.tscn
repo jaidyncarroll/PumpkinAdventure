@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://duievk566mnmr"]
+
+[ext_resource type="PackedScene" uid="uid://c6tlpu3flkqgs" path="res://pumpkin.tscn" id="1_fnixi"]
+[ext_resource type="PackedScene" uid="uid://ib23oew5hf5v" path="res://tilemap.tscn" id="1_uo3lm"]
+[ext_resource type="PackedScene" uid="uid://dq5xues2u37ds" path="res://heartone.tscn" id="2_7hpuy"]
+[ext_resource type="Texture2D" uid="uid://bq680jr0ek8fe" path="res://gameTileset.png" id="2_msnq4"]
+[ext_resource type="PackedScene" uid="uid://datnn4pr16bnr" path="res://tree_checkpoint.tscn" id="4_ruc15"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hme07"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xkvq6"]
+texture = ExtResource("2_msnq4")
+texture_region_size = Vector2i(62, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31, -32, 31, -32, 31, 32, -31, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_86lip"]
+resource_local_to_scene = true
+tile_size = Vector2i(62, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_hme07")
+sources/0 = SubResource("TileSetAtlasSource_xkvq6")
+
+[node name="cave_scene" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_fnixi")]
+position = Vector2(153, 447)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(141, -99)
+
+[node name="heartone" parent="CharacterBody2D" instance=ExtResource("2_7hpuy")]
+position = Vector2(-25, -138)
+
+[node name="tilemap" parent="." instance=ExtResource("1_uo3lm")]
+position = Vector2(196, 139)
+tile_set = SubResource("TileSet_86lip")
+layer_0/tile_data = PackedInt32Array(458750, 0, 1, 458751, 0, 1, 393216, 0, 1, 393217, 0, 1, 393218, 0, 1, 393219, 0, 1, 393220, 0, 1, 393221, 0, 1, 393222, 0, 1, 393223, 0, 1, 393225, 0, 1, 393224, 0, 1)
+
+[node name="Area2D" parent="." instance=ExtResource("4_ruc15")]
+position = Vector2(746, 416)

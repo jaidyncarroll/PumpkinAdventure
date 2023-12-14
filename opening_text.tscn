@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bi350fadigek0"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = 4.0
+offset_right = 39.0
+offset_bottom = 44.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 145.0
+color = Color(1, 1, 1, 0.843137)
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.85
+anchor_bottom = 4.023
+offset_right = -0.00012207
+offset_bottom = -1.92001
+theme_type_variation = &"HeaderLarge"
+text = "Welcome to Meowtopia Pumpkin! You will set out on a mission to save the world. 
+Use your awesome parkour skills on your journey. Well, what are you waiting for, 
+adventure awaits! "
